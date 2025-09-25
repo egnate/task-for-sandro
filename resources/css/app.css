@@ -1,0 +1,244 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Primary Brand Colors */
+    --color-primary: #10b981;
+    --color-primary-hover: #059669;
+    --color-primary-light: #34d399;
+    --color-primary-dark: #047857;
+    --color-primary-rgb: 16, 185, 129;
+    --color-primary-50: #ecfdf5;
+    --color-primary-100: #d1fae5;
+    --color-primary-200: #a7f3d0;
+    --color-primary-300: #6ee7b7;
+    --color-primary-400: #34d399;
+    --color-primary-500: #10b981;
+    --color-primary-600: #059669;
+    --color-primary-700: #047857;
+    --color-primary-800: #065f46;
+    --color-primary-900: #064e3b;
+
+    --color-main: #3c1911;
+    --color-main-hover: #4e231a;
+    --color-highlighted: rgb(148 163 184 / 0.15);
+
+    --color-our-green: var(--color-primary);
+    --color-our-green-hover: var(--color-primary-hover);
+
+    --color-text-primary: #261313;
+    --color-text-secondary: #475569;
+    --color-text-muted: #64748B;
+    --color-text-disabled: #94A3B8;
+
+    --color-background-primary: #FFFFFF;
+    --color-background-secondary: #FCFCFC;
+    --color-background-secondary-rgb: 252, 252, 252;
+    --color-background-tertiary: #F1F5F9;
+
+    --color-border-default: #E2E8F0;
+    --color-border-muted: #EFF3F9;
+    --color-border-custom: var(--color-border-default);
+}
+
+/* Input styles */
+.input-custom {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border-default);
+    background-color: var(--color-background-primary);
+    color: var(--color-text-primary);
+    transition: all 200ms ease-in-out;
+}
+
+.input-custom:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.input-custom.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Custom utility classes */
+.bg-surface {
+    background-color: var(--color-background-secondary);
+}
+
+.bg-surface-tertiary {
+    background-color: var(--color-background-tertiary);
+}
+
+.border-custom {
+    border-color: var(--color-border-default);
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-secondary {
+    color: var(--color-text-secondary);
+}
+
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+.text-our-green {
+    color: var(--color-our-green);
+}
+
+.bg-our-green {
+    background-color: var(--color-our-green);
+}
+
+.border-our-green {
+    border-color: var(--color-our-green);
+}
+
+/* Navigation link animations */
+.nav-underline {
+    position: relative;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-underline::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-underline:hover {
+    color: var(--color-primary);
+}
+
+.nav-underline:hover::before {
+    width: 100%;
+}
+
+/* Auth layout background */
+.auth-background {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    min-height: 100vh;
+}
+
+/* Auth card */
+.auth-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid #e5e7eb;
+    box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(79, 70, 229, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Primary color utilities */
+.from-primary {
+    --tw-gradient-from: var(--color-primary);
+}
+
+.to-primary {
+    --tw-gradient-to: var(--color-primary);
+}
+
+.from-primary-hover {
+    --tw-gradient-from: var(--color-primary-hover);
+}
+
+.to-primary-hover {
+    --tw-gradient-to: var(--color-primary-hover);
+}
+
+.to-primary-dark {
+    --tw-gradient-to: var(--color-primary-dark);
+}
+
+.shadow-primary\/25 {
+    --tw-shadow-color: rgba(var(--color-primary-rgb), 0.25);
+}
+
+.shadow-primary\/40 {
+    --tw-shadow-color: rgba(var(--color-primary-rgb), 0.4);
+}
+
+.hover\:shadow-primary\/40:hover {
+    --tw-shadow-color: rgba(var(--color-primary-rgb), 0.4);
+}
+
+.focus\:ring-primary\/20:focus {
+    box-shadow: 0 0 0 4px rgba(var(--color-primary-rgb), 0.2);
+}
+
+.ring-primary\/20 {
+    --tw-ring-color: rgba(var(--color-primary-rgb), 0.2);
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.animate-modalSlideIn {
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
